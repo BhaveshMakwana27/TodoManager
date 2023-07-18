@@ -1,9 +1,46 @@
 {% extends 'basic.html' %}
 
 {% block title %}Todos{% endblock title %}
-
+{% block linkCss %}/static/todo/css/todoList.css{% endblock linkCss %}
 {% block body %}
 
-todos list
+
+<div class="container mt-3">
+    
+
+    <div class='row p-3'>
+        {% for todo in todoList %}
+            
+            <div id='todo{{todo.sno}}' class="card card-bg rounded  m-3 hoverEffect col-4" style='max-width:18rem'>
+                <div class="card-header"><b>{{todo.task_name}}</b><p style='opacity: 0.8;'>{{todo.status}}</p></div>
+                <div class="card-body">
+                    <p class="card-text">Last Date : {{todo.dueDate}}</p>
+                    <p class="card-text">{{todo.description}}</p>
+                    
+                    <a href="/todo/{{todo.task_name}}" class="btn btn-info card-text">
+                        View Task
+                    </a>
+                    <a href="/delete/{{todo.sno}}" class="btn btn-danger card-text">
+                        Delete Task
+                    </a>
+                </div>
+            </div> 
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock body %}
+{% block js %}
+    <script>
+       
+    var cards = document.getElementsByClassName('card-bg');
+
+
+    for (var i = 0; i < cards.length; i++) {
+        var hue = i * 20;
+        cards[i].style.backgroundColor = 'hsl(' + hue + ', 90%, 80%)';
+    }
+    </script>
+
+{% endblock js %}
+

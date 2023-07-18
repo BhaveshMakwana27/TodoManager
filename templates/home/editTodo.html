@@ -1,0 +1,52 @@
+{% extends 'basic.html' %}
+
+{% block title %}Edit{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+    <div class='d-flex justify-content-center py-4 '>
+        <form action='/editTodo/{{currDetails.sno}}' method='post' class='w-sm-100 w-md-50'> {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Edit {{currDetails.task_name}}..</h1>
+            <div class="m-3">
+                <label for="newTaskName">Task Name</label>
+                <input type="text" class="form-control" id="newTaskName" name='newTaskName' placeholder="newTaskName" value='{{currDetails.task_name}}'>
+            </div>
+            <div class="m-3">
+                <label for="newDescription">Description</label>
+                <textarea type="text" class="form-control" id="newDescription" name="newDescription" placeholder="description"
+                    rows='3'>{{currDetails.description}}</textarea>
+            </div>
+            <div class='m-3 row'>
+                <label for="newPriority">Select Priority</label>
+                <select class="form-select col-6 w-50" id='newPriority' name='newPriority' aria-label="Default select example" value='{{currDetails.priority}}'>
+                    <option {% if currDetails.priority == 'High' %} selected {% endif %} value="High">High</option>
+                    <option {% if currDetails.priority == 'Medium' %} selected {% endif %} value="Medium">Medium</option>
+                    <option {% if currDetails.priority == 'Low' %} selected {% endif %} value="Low">Low</option>
+                </select>
+                <div class=" col-6">
+                    <label for="newLastdate">Due Date</label>
+                    <input type="date" class="form-control" id="newLastdate" name="newLastdate" placeholder="newLastdate" value='{{currDetails.dueDate|date:'Y-m-d'}}'>
+                </div>
+            </div>
+            <div class="m-3">
+                <label for="newTag">Tag</label>
+                <input type="text" class="form-control" id="newTag" name='newTag'
+                    placeholder="newTag" value='{{currDetails.tag}}'>
+            </div>
+            <div class="m-3">
+                <label for="newStatus">Status</label>
+                <select class="form-select col-6 w-50" id='newStatus' name='newStatus' aria-label="Default select example">
+                    
+                    <option {% if currDetails.status == 'Not Started' %} selected {% endif %} value="Not Started">Not Started</option>
+                    <option {% if currDetails.status == 'In Progress'  %} selected {% endif %} value="In Progress">In Progress</option>
+                    <option {% if currDetails.status == 'Completed' %} selected {% endif %}value="Completed">Completed</option>
+                </select>
+            </div>
+            <button class="btn btn-primary w-25 py-2 m-3" type="submit">Edit Todo</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock body %}

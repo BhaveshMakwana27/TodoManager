@@ -1,9 +1,25 @@
 {% extends 'basic.html' %}
 
 {% block title %}Home{% endblock title %}
+{% block linkCss %}/static/home/css/index.css{% endblock linkCss %}
 
 {% block body %}
 
-Home
+<div class="container mt-5">
+  <div class="col-md-8 mx-auto text-center">
+    <h1>TODO</h1>
+    <h1 class="m-5 fw-semibold lh-1">Save Your Todo here and We will remind your task</h1>
+    <p class="lead mb-4">
+      "Stay organized and boost productivity with our intuitive todo list manager. Effortlessly manage your tasks and stay on top of your goals."
+    </p>
+    {% if user.is_authenticated %}
+    <a href='/createTodo/' class='btn btn-info mt-5 createTodoBtn'><h4 class='fw-semibold lh-1'>Create Todo</h4></a>
+    {% else %}
+    <p class="lead mb-4">
+      <a href="/login/">Login</a> to create and store your todos..
+    </p>
+    {% endif %}
+  </div>
+</div>
 
 {% endblock body %}

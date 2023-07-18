@@ -4,6 +4,21 @@
 
 {% block body %}
 
-Todo{{slug}}
+<div class="container mt-5">
+    <h1>Todo Details</h1>
+    
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Task Name: {{details.task_name}}</h5>
+        <p class="card-text"><strong>Description:</strong> {{details.description}}</p>
+        <p class="card-text"><strong>Priority:</strong> {{details.priority}}</p>
+        <p class="card-text"><strong>Due Date:</strong> {{details.dueDate}}</p>
+        <p class="card-text"><strong>Tags/Labels:</strong> {{details.tag}}</p>
+        <p class="card-text"><strong>Status:</strong> {{details.status}}</p>
+        <p class="card-text"><strong>Username:</strong> {{details.user}}</p>
+      </div>
+    </div>
+    <a href="/editTodo/{{details.sno}}" class='btn btn-info m-3'>Edit</a>
+  </div>
 
 {% endblock body %}

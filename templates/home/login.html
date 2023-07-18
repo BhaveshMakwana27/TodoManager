@@ -4,6 +4,22 @@
 
 {% block body %}
 
-Login
+<div class="container">
+    <div class='d-flex justify-content-center py-4 '>
+        <form action='/login/' method='post' class='w-25'> {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="loginUsername" name='loginUsername' placeholder="username">
+              <label for="loginUsername">Username</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="loginPassword" name='loginPassword' placeholder="Password">
+              <label for="loginPassword">Password</label>
+            </div>
+            <button class="btn btn-primary w-100 py-2 my-3" type="submit">Sign in</button>
+            <span class='ms-2'>Don't Have an account? </span><a href="/signin/">Signin</a>
+          </form>
+    </div>
+</div>
 
 {% endblock body %}

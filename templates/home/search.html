@@ -1,0 +1,52 @@
+{% extends 'basic.html' %}
+
+{% block title %}Search{% endblock title %}
+{% block linkCss %}/static/todo/css/todoList.css{% endblock linkCss %}
+{% block body %}
+
+
+<div class="container mt-3" id='oho'>
+
+        <div class="row p-3">
+            {% if result|length == 0 %}
+                <span>Your search - <b>{{query}}</b> - did not match any documents.</span>
+                <div class='mt-4'>
+                    Suggestions:
+                    <ul>
+                        <li>Make sure that all words are spelled correctly.</li>
+                        <li>Try different keywords.</li>
+                        <li>Try more general keywords.</li>
+                    </ul>
+                </div>
+            {% endif %}
+            {% for todo in result %}
+             <div class="card card-bg rounded  m-3 hoverEffect col-4" style='max-width:18rem'>
+                <div class="card-header"><b>{{todo.task_name}}</b></div>
+                <div class="card-body">
+                    <p class="card-text">Last Date : {{todo.dueDate}}</p>
+                    <p class="card-text">{{todo.description}}</p>
+                    <a href="/todo/{{todo.task_name}}" class="btn btn-danger card-text"> 
+                         View Task
+                    </a>
+                </div>
+            </div>
+            {% endfor %} 
+        </div>
+    
+</div>
+
+{% endblock body %}
+{% block js %}
+
+<script>
+       
+    var cards = document.getElementsByClassName('card-bg');
+
+
+    for (var i = 0; i < cards.length; i++) {
+        var hue = i * 20;
+        cards[i].style.backgroundColor = 'hsl(' + hue + ', 90%, 80%)';
+    }
+    </script>
+
+{% endblock js %}

@@ -4,6 +4,42 @@
 
 {% block body %}
 
-Signin
+<div class="container">
+    <div class='d-flex justify-content-center py-4 '>
+        <form action='/signin/' method='post' class='w-sm-100 w-md-50'> {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+            <div class="form-floating m-1">
+              <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+              <label for="username">Username</label>
+            </div>
+            <div class="row p-1">
+                <div class="form-floating col-md-6">
+                  <input type="text" class="form-control" id="fname" name='fname' placeholder="First Name" required>
+                  <label for="username" class='ms-3'>First Name</label>
+                </div>
+                <div class="form-floating col-md-6">
+                  <input type="text" class="form-control" id="lname" name="lname" placeholder="First Name" required>
+                  <label for="username" class='ms-3'>Last Name</label>
+                </div>
+            </div>
+            <div class="form-floating m-1">
+              <input type="email" class="form-control" id="email" name="email" placeholder="email" required>
+              <label for="username">Email Address</label>
+            </div>
+            <div class="form-floating m-1">
+              <input type="password" class="form-control" id="choosePassword" name='choosePassword' placeholder="Password" required>
+              <label for="choosePassword">Choose Password</label>
+            </div>
+            <div class="form-floating m-1">
+              <input type="password" class="form-control" id="confirmPassword" name='confirmPassword' placeholder="Password" required>
+              <label for="confirmPassword">Confirm Password</label>
+            </div>
+                <button class="btn btn-primary w-25 py-2 my-3" type="submit">Sign in</button>
+                <span class='ms-2'>Already Have an account? </span><a href="/login/">Login</a>
+
+          </form>
+    </div>
+</div>
+
 
 {% endblock body %}
