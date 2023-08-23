@@ -6,17 +6,13 @@
 
 
 <div class="container mt-3">
-    
-
-    <div class='row p-3'>
+    <div class='row p-3 justify-content-center'>
         {% for todo in todoList %}
-            
-            <div id='todo{{todo.sno}}' class="card card-bg rounded  m-3 hoverEffect col-4" style='max-width:18rem'>
+            <div id='todo{{todo.sno}}' class="card col-sm-6 col-md-4 w-auto" style='max-width:18rem'>
                 <div class="card-header"><b>{{todo.task_name}}</b><p style='opacity: 0.8;'>{{todo.status}}</p></div>
                 <div class="card-body">
                     <p class="card-text">Last Date : {{todo.dueDate}}</p>
                     <p class="card-text">{{todo.description}}</p>
-                    
                     <a href="/todo/{{todo.task_name}}" class="btn btn-info card-text">
                         View Task
                     </a>
@@ -33,8 +29,7 @@
 {% block js %}
     <script>
        
-    var cards = document.getElementsByClassName('card-bg');
-
+    var cards = document.getElementsByClassName('card');
 
     for (var i = 0; i < cards.length; i++) {
         var hue = i * 20;

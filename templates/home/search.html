@@ -7,7 +7,7 @@
 
 <div class="container mt-3" id='oho'>
 
-        <div class="row p-3">
+        <div class="row p-3 justify-content-center">
             {% if result|length == 0 %}
                 <span>Your search - <b>{{query}}</b> - did not match any documents.</span>
                 <div class='mt-4'>
@@ -20,13 +20,16 @@
                 </div>
             {% endif %}
             {% for todo in result %}
-             <div class="card card-bg rounded  m-3 hoverEffect col-4" style='max-width:18rem'>
+             <div class="card col-sm-6 col-md-4 w-auto" style='max-width:18rem'>
                 <div class="card-header"><b>{{todo.task_name}}</b></div>
                 <div class="card-body">
                     <p class="card-text">Last Date : {{todo.dueDate}}</p>
                     <p class="card-text">{{todo.description}}</p>
-                    <a href="/todo/{{todo.task_name}}" class="btn btn-danger card-text"> 
+                    <a href="/todo/{{todo.task_name}}" class="btn btn-info card-text"> 
                          View Task
+                    </a>
+                    <a href="/delete/{{todo.sno}}" class="btn btn-danger card-text">
+                        Delete Task
                     </a>
                 </div>
             </div>
@@ -40,7 +43,7 @@
 
 <script>
        
-    var cards = document.getElementsByClassName('card-bg');
+    var cards = document.getElementsByClassName('card');
 
 
     for (var i = 0; i < cards.length; i++) {

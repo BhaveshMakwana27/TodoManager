@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class='d-flex justify-content-center py-4 '>
-        <form action='/createTodo/' method='post' class='w-sm-100 w-md-50'> {% csrf_token %}
+        <form action='/createTodo/' method='post' class='col-12 col-sm-10 col-md-6'> {% csrf_token %}
             <h1 class="h3 mb-3 fw-normal">Create Todo..</h1>
             <div class="m-3">
                 <label for="taskName">Task Name</label>
@@ -17,14 +17,16 @@
                 <textarea type="text" class="form-control" id="description" name="description" placeholder="description"
                     rows='3'></textarea>
             </div>
-            <div class='m-3 row'>
-                <label for="priority">Select Priority</label>
-                <select class="form-select col-6 w-50" id='priority' name='priority' aria-label="Default select example">
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Low">Low</option>
-                </select>
-                <div class=" col-6">
+            <div class='mt-3 ps-3 pe-3 row'>
+                <div class='col-sm'>
+                    <label for="priority">Select Priority</label>
+                    <select class="form-select" id='priority' name='priority' aria-label="Default select example">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="col-sm">
                     <label for="lastdate">Due Date</label>
                     <input type="date" class="form-control" id="lastdate" name="lastdate" placeholder="lastdate">
                 </div>
@@ -42,7 +44,7 @@
                     <option value="Completed">Completed</option>
                 </select>
             </div>
-            <button class="btn btn-primary w-25 py-2 m-3" type="submit">Add Todo</button>
+            <button class="btn btn-primary w-auto py-2 m-3" type="submit">Add Todo</button>
         </form>
     </div>
 </div>

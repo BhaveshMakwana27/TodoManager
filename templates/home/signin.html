@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class='d-flex justify-content-center py-4 '>
-        <form action='/signin/' method='post' class='w-sm-100 w-md-50'> {% csrf_token %}
+        <form action='/signin/' method='post'> {% csrf_token %}
             <h1 class="h3 mb-3 fw-normal">Please Register</h1>
             <div class="form-floating m-1">
               <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
